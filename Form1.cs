@@ -16,7 +16,18 @@ namespace NFC2
         string CaminhoDocumento = string.Empty;
         public Form1()
         {
-            InitializeComponent();
+            
+            
+            F_Login f_login = new F_Login(this);
+            f_login.ShowDialog();
+            if (Globais.logado)
+            {
+                InitializeComponent();
+            }
+            else
+            {
+                Application.Exit();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -80,6 +91,34 @@ namespace NFC2
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void logInToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            F_Login f_login = new F_Login(this);
+            f_login.ShowDialog();
+            Globais.logado = false;
+        }
+
+        private void logOffToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+            Globais.logado = false;
         }
     }
 }

@@ -17,3 +17,4 @@ C:\Users\João Paulo\source\repos\NFC2\NFC2\bin\Debug\EntityFramework.xml
 C:\Users\João Paulo\source\repos\NFC2\NFC2\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\João Paulo\source\repos\NFC2\NFC2\bin\Debug\System.Data.SQLite.xml
 C:\Users\João Paulo\source\repos\NFC2\NFC2\obj\Debug\NFC2.csproj.CopyComplete
+C:\Users\João Paulo\source\repos\NFC2\NFC2\obj\Debug\NFC2.F_Login.resources
