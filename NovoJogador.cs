@@ -17,24 +17,11 @@ namespace NFC2
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)//botão salvar
-        {
-            
-        }
-
+        
         private void button4_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            textBox1.Clear();
-            textBox2.Clear();
-            textBox3.Clear();
-            textBox5.Clear();
-            textBox3.Focus();
-        }
+        }     
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -54,6 +41,16 @@ namespace NFC2
             jogador.posicao = textBox5.Text;
 
             Banco.NovoJogador(jogador);
+            
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox5.Clear();
+            textBox3.Focus();
         }
     }
 }

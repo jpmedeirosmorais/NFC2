@@ -117,6 +117,32 @@ namespace NFC2
 
         //Fim do F_GestaoUsuarios
 
+        //novo jogador
+        public static void NovoJogador(Jogador j)
+        {
+            if (existeJogador(j))
+            {
+                MessageBox.Show("Jogador já existe");
+                return;
+            }
+            try
+            {
+                var cmd = ConexaoBanco().CreateCommand();
+                cmd.CommandText = "INSERT INTO tb_jogador (NOME, IDADE, NACIONALIDADE, POSICAO) VALUES (@nome, @idade, @nacionalidade, @posicao)";
+                cmd.Parameters.AddWithValue("@nome", j.nome);
+                cmd.Parameters.AddWithValue("@idade", j.idade);
+                cmd.Parameters.AddWithValue("@nacionalidade", j.nacionalidade);
+                cmd.Parameters.AddWithValue("@posicao", j.posicao);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Novo jogador cadastrado!");
+                ConexaoBanco().Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao gravar novo jogador!");
+            }
+        }
+
         //Obter jogadores
         public static DataTable ObterTodosJogadores()
         {
@@ -139,32 +165,6 @@ namespace NFC2
             }
         }
 
-
-        //novo jogador
-        public static void NovoJogador(Jogador j)
-        {
-            if (existeJogador(j))
-            {
-                MessageBox.Show("Jogador já existe");
-                return;
-            }
-            try
-            {
-                var cmd = ConexaoBanco().CreateCommand();
-                cmd.CommandText = "INSERT INTO tb_jogador (NOME, IDADE, NACIONALIDADE, POSICAO) VALUES (@nome, @idade, @nacionalidade, @posicao)";
-                cmd.Parameters.AddWithValue("@nome", j.nome);
-                cmd.Parameters.AddWithValue("@username", j.idade);
-                cmd.Parameters.AddWithValue("@nacionalidade", j.nacionalidade);
-                cmd.Parameters.AddWithValue("@posicao", j.posicao);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Novo jogador cadastrado!");
-                ConexaoBanco().Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao gravar novo jogador!");
-            }
-        }
         //Rotinas Gerais
 
         public static bool existeUsername(Usuario u)

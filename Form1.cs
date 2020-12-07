@@ -172,5 +172,10 @@ namespace NFC2
                 }
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = Banco.ObterTodosJogadores();
+        }
     }
 }
