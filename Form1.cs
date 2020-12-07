@@ -16,8 +16,8 @@ namespace NFC2
         string CaminhoDocumento = string.Empty;
         public Form1()
         {
-            
-            
+
+
             F_Login f_login = new F_Login(this);
             f_login.ShowDialog();
             if (Globais.logado)
@@ -40,7 +40,7 @@ namespace NFC2
             DialogResult dialogResult = saveFileDialog1.ShowDialog();
 
 
-            if(saveFileDialog1.FileName.Length != 0)
+            if (saveFileDialog1.FileName.Length != 0)
             {
                 richTextBox1.SaveFile(saveFileDialog1.FileName, RichTextBoxStreamType.PlainText);
             }
@@ -85,7 +85,7 @@ namespace NFC2
         }
 
         private void button5_Click(object sender, EventArgs e)
-        { 
+        {
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -95,7 +95,7 @@ namespace NFC2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            dataGridView1.DataSource = Banco.ObterTodosJogadores();
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -105,9 +105,9 @@ namespace NFC2
 
         private void logInToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Globais.logado = false;
             F_Login f_login = new F_Login(this);
             f_login.ShowDialog();
-            Globais.logado = false;
         }
 
         private void logOffToolStripMenuItem_Click(object sender, EventArgs e)
@@ -119,6 +119,58 @@ namespace NFC2
         {
             Application.Exit();
             Globais.logado = false;
+        }
+
+        private void adicionarNovoUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Globais.logado)
+            {
+
+                if (Globais.nivel >= 2)
+                {
+                    F_NovoUsuario f_NovoUsuario = new F_NovoUsuario();
+                    f_NovoUsuario.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Acesso não permitido!");
+                }
+            }
+        }
+
+        private void novoJogadorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Globais.logado)
+            {
+
+                if (Globais.nivel >= 1)
+                {
+                    NovoJogador novoJogador = new NovoJogador();
+                    novoJogador.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Acesso não permitido!");
+                }
+            }
+        }
+
+        private void gestorDeUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Globais.logado)
+            {
+
+                if (Globais.nivel >= 2)
+                {
+                    F_GestaoUsuarios f_GestaoUsuarios = new F_GestaoUsuarios();
+                    f_GestaoUsuarios.ShowDialog();
+
+                }
+                else
+                {
+                    MessageBox.Show("Acesso não permitido!");
+                }
+            }
         }
     }
 }
