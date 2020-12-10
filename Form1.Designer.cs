@@ -59,6 +59,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
+            this.usernameDoUsuario = new System.Windows.Forms.Label();
+            this.nomeDoUsuario = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -156,12 +158,18 @@
             // 
             this.splitContainer1.Location = new System.Drawing.Point(37, 586);
             this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             this.splitContainer1.Size = new System.Drawing.Size(150, 100);
             this.splitContainer1.TabIndex = 9;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Controls.Add(this.nomeDoUsuario);
+            this.panel2.Controls.Add(this.usernameDoUsuario);
             this.panel2.Controls.Add(this.lblNomeMesmo);
             this.panel2.Controls.Add(this.lblNome);
             this.panel2.Controls.Add(this.lblUsername);
@@ -171,6 +179,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1222, 27);
             this.panel2.TabIndex = 10;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // lblNomeMesmo
             // 
@@ -183,7 +192,7 @@
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(176, 5);
+            this.lblNome.Location = new System.Drawing.Point(182, 5);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(38, 13);
             this.lblNome.TabIndex = 2;
@@ -205,6 +214,7 @@
             this.lblUsuario.Size = new System.Drawing.Size(46, 13);
             this.lblUsuario.TabIndex = 0;
             this.lblUsuario.Text = "Usuário:";
+            this.lblUsuario.Click += new System.EventHandler(this.lblUsuario_Click);
             // 
             // menuStrip1
             // 
@@ -319,6 +329,24 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // usernameDoUsuario
+            // 
+            this.usernameDoUsuario.AutoSize = true;
+            this.usernameDoUsuario.Location = new System.Drawing.Point(64, 5);
+            this.usernameDoUsuario.Name = "usernameDoUsuario";
+            this.usernameDoUsuario.Size = new System.Drawing.Size(16, 13);
+            this.usernameDoUsuario.TabIndex = 4;
+            this.usernameDoUsuario.Text = "---";
+            // 
+            // nomeDoUsuario
+            // 
+            this.nomeDoUsuario.AutoSize = true;
+            this.nomeDoUsuario.Location = new System.Drawing.Point(226, 5);
+            this.nomeDoUsuario.Name = "nomeDoUsuario";
+            this.nomeDoUsuario.Size = new System.Drawing.Size(16, 13);
+            this.nomeDoUsuario.TabIndex = 5;
+            this.nomeDoUsuario.Text = "---";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -379,14 +407,16 @@
         private System.Windows.Forms.ToolStripMenuItem administradorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adicionarNovoUsuárioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestorDeUsuáriosToolStripMenuItem;
-        private System.Windows.Forms.Label lblNomeMesmo;
+        public System.Windows.Forms.Label lblNomeMesmo;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.Label lblUsuario;
+        public System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button4;
+        public System.Windows.Forms.Label usernameDoUsuario;
+        public System.Windows.Forms.Label nomeDoUsuario;
     }
 }
 

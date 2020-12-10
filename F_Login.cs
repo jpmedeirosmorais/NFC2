@@ -54,6 +54,7 @@ namespace NFC2
             
             if (dt.Rows.Count == 1)
             {
+                
                 Globais.nivel = int.Parse(dt.Rows[0].Field<Int64>("N_NIVELDOUSUARIO").ToString());
                 Globais.logado = true;
                 this.Close();
